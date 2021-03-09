@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=Question
+    Sign in to vote
+    1
+    Sign in to vote
+    I am trying to write code for  a tax calculator. 
+    
+    I take the users taxable income and then display their tax liability, percentage of their income, and marginal tax bracket. 
+    
+    for each bracket I am given a different base rate and percentage of excess.
+    
+    Here is my code so far.....
+    
+     If Not IsNumeric(txtIncome.Text) Then
+                MessageBox.Show("Please enter income", "Error")
+            End If
+            Dim income As Double = CDbl(txtIncome.Text)
+            Dim liabilityTax, taxBracket, percentTax As Double
+    
+                Select Case income
+                    Case CDbl((income) <= 8700)
+                        liabilityTax = (income * 0.1)
+                        taxBracket = (0)
+                        percentTax = (liabilityTax) / income
+    
+                    Case CDbl(income <= 35350)
+                        liabilityTax = (870 + (0.15 * (income - 8700)))
+                        taxBracket = 15
+                        percentTax = (liabilityTax) / income
+    
+                    Case CDbl(income <= 85650)
+                        liabilityTax = (4867.5 + (0.25 * (income - 35350)))
+                        taxBracket = 28
+                        percentTax = (liabilityTax) / income
+    
+                    Case CDbl(income <= 178650)
+                        liabilityTax = (17442.5 + (0.28 * (income - 85650)))
+                        taxBracket = 33
+                        percentTax = (liabilityTax) / income
+    
+                    Case CDbl(income <= 388350)
+                        liabilityTax = (43482.5 + (0.33 * (income - 178650)))
+                        taxBracket = 35
+                        percentTax = (liabilityTax) / income
+    
+                    Case CDbl(income > 388350)
+                        liabilityTax = (112683.5 + (0.35 * (income - 388350)))
+                        taxBracket = 38
+                        percentTax = (liabilityTax) / income
+    
+                End Select
+                txtLiability.Text = FormatCurrency(liabilityTax)
+                txtBracket.Text = FormatPercent(taxBracket)
+                txtPercent.Text = FormatCurrency(percentTax), initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
